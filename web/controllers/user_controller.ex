@@ -54,7 +54,7 @@ defmodule PhoenixAdmin.UserController do
   """
   def update(conn, %{"id" => id, "data" => %{"attributes" => user_params}}) do
     user = Repo.get!(User, id)
-    changeset = User.changeset(user, user_params)
+    changeset = User.changeset_update(user, user_params)
 
     case Repo.update(changeset) do
       {:ok, user} ->

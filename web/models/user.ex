@@ -40,7 +40,18 @@ defmodule PhoenixAdmin.User do
     struct
     |> cast(params, [:email, :name, :password])
     |> validate_required([:email, :name, :password])
+    |> unique_constraint(:email)
     |> put_encrypted_password()
+  end
+
+  @doc """
+  Builds a update changeset based on the `struct` and `params`.
+  """
+  def changeset_update(struct, params \\ %{}) do
+    struct
+    |> cast(params, [:email, :name, :last_login, :verified_at, :verification_sent_at])
+    |> validate_required([:email, :name])
+    |> unique_constraint(:email)
   end
 
   @doc """
