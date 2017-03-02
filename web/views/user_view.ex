@@ -1,7 +1,7 @@
 defmodule PhoenixAdmin.UserView do
   use PhoenixAdmin.Web, :view
 
-  attributes [:email, :name, :verified_at]
+  attributes [:email, :name, :last_login, :verified_at, :verification_sent_at]
 
   def render("login.json", %{jwt: jwt, exp: exp, user: user}) do
     %{"token": jwt,
