@@ -36,6 +36,6 @@ defmodule PhoenixAdmin.Router do
     post "/users/resend_verification", UserController, :resend_verification
     post "/users/recover_password", UserController, :recover_password
     post "/users/reset_password", UserController, :reset_password
-    get "/users/verify", UserController, :verify
+    post "/users/verify", UserController, :verify
   end
 end
